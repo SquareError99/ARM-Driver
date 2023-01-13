@@ -2,25 +2,33 @@
 
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
- *         File:  IntCrtl.h
- *       Module:  IntCrtl
- *
- *  Description:  header file for IntCrtl Module    
+ *         File:  Bit_Math.h
+ *       Module:  -
+ *       Author: Omar Emad
+ * 
+ *  Description:  Contains Compiler Dependent MACRO Definition     
  *  
  *********************************************************************************************************************/
-#ifndef IntCtrl_H
-#define IntCtrl_H
+#ifndef BIT_MATH_H
+#define BIT_MATH_H
 
 /**********************************************************************************************************************
  * INCLUDES
  *********************************************************************************************************************/
-#include "Std_Types.h"
-#include "IntCtrl_Cfg.h"
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
 
+// 8bit
+#define  Set_Bit(VAR,BIT)       ( VAR |= (1<<BIT))  // bit -> 1
+#define  Clr_Bit(VAR,BIT)       ( VAR &= (~(1<<BIT))) // bit-> 0
+#define  Tog_Bit(VAR,BIT)       ( VAR ^= (1<<BIT)) // bit 1->0  or  bit 0->1
+#define  Get_Bit(VAR,BIT)       ( ( VAR >>BIT) & 1)
+
+#define Set_Reg(REG)			(REG = 255) // port -> 1
+#define Clr_Reg(REG)			(REG = 0)// port -> 0
+#define Tog_Reg(REG)			(REG ^=255) // port 1->0  or  port 0->1
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
@@ -40,22 +48,9 @@
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
- 
-/******************************************************************************
-* \Syntax          : void IntCrtl_Init(void)                                      
-* \Description     : initialize Nvic\SCB Module by parsing the Configuration 
-*                    into Nvic\SCB registers                                    
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Non Reentrant                                             
-* \Parameters (in) : None                     
-* \Parameters (out): None                                                      
-* \Return value:   : None
-*******************************************************************************/
-void IntCtrl_Init(void);
- 
-#endif  /* IntCtrl_H */
 
+
+#endif /* BIT_MATH_H */
 /**********************************************************************************************************************
- *  END OF FILE: IntCrtl.h
+ *  END OF FILE: Bit_Math.h
  *********************************************************************************************************************/
